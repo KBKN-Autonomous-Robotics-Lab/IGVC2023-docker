@@ -65,25 +65,26 @@ RUN apt-get update && \
 RUN apt-get update && \
     apt-get upgrade -y && \
     mkdir -p /home/ubuntu/catkin_ws/src && \
-    /bin/bash -c "source /opt/ros/noetic/setup.bash ; cd /home/ubuntu/catkin_ws/src ; catkin_init_workspace" && \
-    /bin/bash -c "source /opt/ros/noetic/setup.bash ; cd /home/ubuntu/catkin_ws ; catkin build" && \
+    /bin/bash -c "source /opt/ros/noetic/setup.bash; cd /home/ubuntu/catkin_ws/src; catkin_init_workspace" && \
+    /bin/bash -c "source /opt/ros/noetic/setup.bash; cd /home/ubuntu/catkin_ws; catkin build" && \
     cd /home/ubuntu/catkin_ws/src && \
     git clone https://github.com/KBKN-Autonomous-Robotics-Lab/IGVC2023-src.git && \
     rm IGVC2023-src/CMakeLists.txt && \
     mv IGVC2023-src/* . && \mv IGVC2023-src/.git* . && \
     rm -rf IGVC2023-src && \
+    /bin/bash -c "source /opt/ros/noetic/setup.bash; cd /home/ubuntu/catkin_ws; catkin build -j2" && \
+    catkin clean --yes && \
     chown -R $USER:$USER $HOME && \
-    /bin/bash -c "source /opt/ros/noetic/setup.bash ; cd /home/ubuntu/catkin_ws ; catkin build" && \
     echo "source /home/ubuntu/catkin_ws/devel/setup.bash" >> ~/.bashrc && \
     echo "export ROS_WORKSPACE=/home/ubuntu/catkin_ws" >> ~/.bashrc && \
     echo "alias cm='cd ~/catkin_ws;catkin build'" >> ~/.bashrc && \
     echo "alias cs='cd ~/catkin_ws/src'" >> ~/.bashrc && \
     echo "alias cw='cd ~/catkin_ws'" >> ~/.bashrc && \
-    echo "alias start='roslaunch tsukuba2022 start.launch'" >> ~/.bashrc && \
-    echo "alias start_sim='roslaunch tsukuba2022 start_sim.launch'" >> ~/.bashrc && \
-    echo "alias buildmap='roslaunch tsukuba2022 buildmap_teleop_joy.launch'" >> ~/.bashrc && \
-    echo "alias savemap='rosrun map_server map_saver -f ~/catkin_ws/src/tsukuba2022/maps/mymap && bash ~/catkin_ws/src/tsukuba2022/scripts/rename.sh'" >> ~/.bashrc && \
-    echo "alias navigation='roslaunch tsukuba2022 waypoint_navigation.launch'" >> ~/.bashrc && \
+    echo "alias start='roslaunch igvc2023 start.launch'" >> ~/.bashrc && \
+    echo "alias start_sim='roslaunch igvc2023 start_sim.launch'" >> ~/.bashrc && \
+    echo "alias buildmap='roslaunch igvc2023 buildmap_teleop_joy.launch'" >> ~/.bashrc && \
+    echo "alias savemap='rosrun map_server map_saver -f ~/catkin_ws/src/igvc2023/maps/mymap && bash ~/catkin_ws/src/igvc2023/scripts/rename.sh'" >> ~/.bashrc && \
+    echo "alias navigation='roslaunch igvc2023 waypoint_navigation.launch'" >> ~/.bashrc && \
     echo "alias waypoint_manager='python ~/catkin_ws/src/waypoint_navigation/waypoint_manager/scripts/manager_GUI.py'" >> ~/.bashrc && \
     echo "alias map_merger='python ~/catkin_ws/src/multi_map_manager/apps/map_merger.py'" >> ~/.bashrc && \
     echo "alias map_trimmer='python ~/catkin_ws/src/multi_map_manager/apps/map_trimmer.py'" >> ~/.bashrc
