@@ -47,19 +47,7 @@ RUN apt-get update && \
     python3-pip \
     python3-testresources \
     gedit \
-    gimp \
-    ros-noetic-rosserial \
-    ros-noetic-rosserial-arduino \
-    ros-noetic-urg-node \
-    ros-noetic-joy \
-    ros-noetic-teleop-twist-joy \
-    ros-noetic-robot-pose-ekf \
-    ros-noetic-tf2-sensor-msgs \
-    ros-noetic-move-base-msgs \
-    ros-noetic-velodyne-gazebo-plugins \
-    libsdl1.2-dev \
-    libsdl-image1.2-dev \
-    libpcap-dev 
+    gimp 
     
    
 RUN apt-get update && \
@@ -72,7 +60,8 @@ RUN apt-get update && \
     rm IGVC2023-src/CMakeLists.txt && \
     mv IGVC2023-src/* . && \mv IGVC2023-src/.git* . && \
     rm -rf IGVC2023-src && \
-    /bin/bash -c "source /opt/ros/noetic/setup.bash; cd /home/ubuntu/catkin_ws; catkin build -j2" && \
+    bash setup.sh && \
+    /bin/bash -c "source /opt/ros/noetic/setup.bash" && \
     catkin clean --yes && \
     chown -R $USER:$USER $HOME && \
     echo "source /home/ubuntu/catkin_ws/devel/setup.bash" >> ~/.bashrc && \
@@ -91,9 +80,4 @@ RUN apt-get update && \
 
 
 RUN python3 -m pip install --user --upgrade --no-cache-dir --no-warn-script-location pip && \
-    python3 -m pip install --user --upgrade --no-cache-dir --no-warn-script-location \
-    pymodbus \
-    numpy-quaternion \
-    ruamel.yaml \
-    Pillow && \
     chown -R $USER:$USER $HOME/.local/
