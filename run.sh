@@ -12,6 +12,10 @@ docker run \
 	--device /dev/sensors/hokuyo_urg:/dev/sensors/hokuyo_urg:mwr \
 	--device /dev/sensors/imu:/dev/sensors/imu:mwr \
 	--device /dev/input/js0:/dev/input/js0:mwr \
+	--device /dev/ttyACM0:/dev/ttyACM0:mwr \
+	--device /dev/ttyACM1:/dev/ttyACM1:mwr \
+	--device /dev/ttyACM2:/dev/ttyACM2:mwr \
 	igvc2023
 	
+	#--device /dev/sensors/LED:/dev/sensors/LED:mwr \
 	#-e RESOLUTION=1920x1080
