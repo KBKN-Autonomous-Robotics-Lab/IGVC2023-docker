@@ -11,7 +11,10 @@ docker run \
 	--device /dev/ZLAC8015D:/dev/ZLAC8015D:mwr \
 	--device /dev/sensors/hokuyo_urg:/dev/sensors/hokuyo_urg:mwr \
 	--device /dev/sensors/imu:/dev/sensors/imu:mwr \
-	--device /dev/input/js0:/dev/input/js0:mwr \
+	--device /dev/sensors/camera:/dev/sensors/camera:mwr \ 
+        --device /dev/sensors/LED:/dev/sensors/LED:mwr \ 
+        --device /dev/input/js0:/dev/input/js0:mwr \
+        --device /dev/E-stop:/dev/E-Stop:mwr \
 	igvc2023
 	
 	#-e RESOLUTION=1920x1080
