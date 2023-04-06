@@ -11,11 +11,13 @@ docker run \
 	--device /dev/ZLAC8015D:/dev/ZLAC8015D:mwr \
 	--device /dev/sensors/hokuyo_urg:/dev/sensors/hokuyo_urg:mwr \
 	--device /dev/sensors/imu:/dev/sensors/imu:mwr \
+	--device /dev/sensors/insta360_air:/dev/sensors/insta360_air:mwr \
 	--device /dev/input/js0:/dev/input/js0:mwr \
 	--device /dev/ttyACM0:/dev/ttyACM0:mwr \
 	--device /dev/ttyACM1:/dev/ttyACM1:mwr \
 	--device /dev/ttyACM2:/dev/ttyACM2:mwr \
+	--device /dev/E-Stop:/dev/E-Stop:mwr \
+	--device /dev/sensors/LED:/dev/sensors/LED:mwr \
 	igvc2023
 	
-	#--device /dev/sensors/LED:/dev/sensors/LED:mwr \
 	#-e RESOLUTION=1920x1080
