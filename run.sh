@@ -13,9 +13,9 @@ docker run \
 	--device /dev/sensors/imu:/dev/sensors/imu:mwr \
 	--device /dev/sensors/insta360_air:/dev/sensors/insta360_air:mwr \
 	--device /dev/input/js0:/dev/input/js0:mwr \
-	--device /dev/ttyACM0:/dev/ttyACM0:mwr \
-	--device /dev/ttyACM1:/dev/ttyACM1:mwr \
-	--device /dev/ttyACM2:/dev/ttyACM2:mwr \
+	--device /dev/sensors/CLAS:/dev/sensors/CLAS:mwr \
+	--device /dev/sensors/GNSSbase:/dev/sensors/GNSSbase:mwr \
+	--device /dev/sensors/GNSSrover:/dev/sensors/GNSSrover:mwr \
 	--device /dev/E-Stop:/dev/E-Stop:mwr \
 	--device /dev/sensors/LED:/dev/sensors/LED:mwr \
 	igvc2023
